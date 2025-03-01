@@ -11,6 +11,7 @@ fastapi = "^0.115.10"
 sqlalchemy = "^2.0.38"
 asyncpg = "^0.30.0"
 pydantic-settings = "^2.8.1"
+uvicorn = "^0.34.0"
 
 
 [build-system]
