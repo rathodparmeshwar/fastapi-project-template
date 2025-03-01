@@ -3,7 +3,7 @@ from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
     # API path and headers.
-    api_prefix: str = "/api/v1"
+    API_V1_STR: str = "/api/v1"
     REDIS_HOST: str = "redis"
     REDIS_PORT: int = 6379
 
