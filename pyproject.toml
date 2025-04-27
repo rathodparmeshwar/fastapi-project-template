@@ -1,9 +1,10 @@
 [tool.poetry]
-name = "api-bot-backend"
+name = "zentre_admin"
 version = "0.1.0"
 description = ""
 authors = ["rathodparmeshwar <rathodparmeshwar@gmail.com>"]
 readme = "README.md"
+package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.12"
@@ -14,6 +15,7 @@ pydantic-settings = "^2.8.1"
 uvicorn = "^0.34.0"
 jwt = "^1.3.1"
 python-jose = "^3.4.0"
+aiofiles = "^24.1.0"
 
 
 [build-system]

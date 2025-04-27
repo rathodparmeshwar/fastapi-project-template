@@ -15,6 +15,14 @@ services:
       - ./migrations:/app/migrations
       - ./media:/app/media
 
+  redis:
+    image: redis:latest
+    container_name: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - app-network 
+
   db:
     image: postgres:17-alpine
     container_name: db
