@@ -87,7 +87,7 @@ def import_categories_from_csv(csv_filepath=r'data\categories.csv'):
                         parent_image = f"categories/{parent_slug}.jpg"
                         
                         new_parent = Category(
-                            name=parent_name,
+                            name=parent_name.title(),
                             slug=parent_slug,
                             parent_id=None,
                             image=parent_image,
