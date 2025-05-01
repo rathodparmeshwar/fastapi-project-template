@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 class Auth {
-    constructor () {
+    constructor() {
         this.token = window.localStorage.getItem('token');
         let userData = window.localStorage.getItem('user');
         this.user = userData ? JSON.parse(userData) : null;
@@ -11,7 +11,7 @@ class Auth {
         }
     }
 
-    login (token, user) {
+    login(token, user) {
         window.localStorage.setItem('token', token);
         window.localStorage.setItem('user', JSON.stringify(user));
         axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
@@ -24,11 +24,11 @@ class Auth {
         this.validate();
     }
 
-    check () {
-        return !! this.token;
+    check() {
+        return !!this.token;
     }
 
-    logout () {
+    logout() {
         let role_id = this.user.role_id;
         //return;
         window.localStorage.clear();
@@ -46,35 +46,35 @@ class Auth {
         this.user = null;
     }
 
-    validate(currentRoute=null){
+    validate(currentRoute = null) {
         var currentPathName = window.location.pathname;
-        if(currentRoute) {
+        if (currentRoute) {
             currentPathName = currentRoute;
         }
-        var ignoreRoutes = ["/purchase_code","/login","/seller/login","/delivery_boy/login","/seller/register","/delivery_boy/register","/forgot-password"];
-        
-var purchase_code = '';
-axios.get( window.baseUrl+'/api/admin_settings', ) 
-                .then((response) => {
-                    
-                    let data = response.data;
-                    
-                     purchase_code = data.purchase_code;
-                    
-                });
-                setTimeout(() => {
-                   
-                    
-                        if(!purchase_code && !ignoreRoutes.includes(currentPathName)){
-               
-                            window.location.href = '/purchase_code';
-                        }
-                     window.MapApiKey=MapApiKey;
-                    window.purchase_code = purchase_code;
-                   
-                }, 4000); // 60000ms = 1 minute
-        
-        
+        var ignoreRoutes = ["/purchase_code", "/login", "/seller/login", "/delivery_boy/login", "/seller/register", "/delivery_boy/register", "/forgot-password"];
+
+        var purchase_code = '';
+        axios.get(window.baseUrl + '/api/admin_settings',)
+            .then((response) => {
+
+                let data = response.data;
+
+                purchase_code = data.purchase_code;
+
+            });
+        setTimeout(() => {
+
+
+            if (!purchase_code && !ignoreRoutes.includes(currentPathName)) {
+
+                window.location.href = '/purchase_code';
+            }
+            window.MapApiKey = MapApiKey;
+            window.purchase_code = purchase_code;
+
+        }, 4000); // 60000ms = 1 minute
+
+
     }
 }
 export default new Auth();
